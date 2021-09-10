@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/index.css')}}">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <title>Henshuai - Neural Tani</title>
+</head>
+
+<body>
+    <div class="section-center">
+        <p class="header">Welcome to Henshuai Intelligence</p>
+        <div class="img-section">
+            <img class="img-postman" src="{{url_for('static', filename='postman-inc-logo-vector.png')}}">
+            <img class="img-neuratani" src="{{url_for('static', filename='neuratani.png')}}">
+        </div>
+        <p class="sub-header">Please try our AI model using api link below using postman </p>
+        <p>- <a class="link" href="/model">Predict Model Paddy</a></p>
+
+        <p>send parameters json object to above url as follow :</p>
+        <table style="text-align: center;">
+            <tr>
+              <th><p>paramter</p></th>
+              <th><p>data type</p></th>
+              <th><p>example</p></th>
+            </tr>
+            <tr>
+              <th>farm_meter</th>
+              <td>integer</td>
+              <td>75</td>
+            </tr>
+            
+            <tr>
+              <th>rain</th>
+              <td>integer</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <th>cloudy</th>
+              <td>integer</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <th>crop_type</th>
+              <td>integer</td>
+              <td>1</td>
+            </tr>
+          </table>
+    </div>
+
+</body>
+
+</html>

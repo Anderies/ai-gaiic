@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_marshmallow import Marshmallow
 import pickle
 # import sklearn.external.joblib as extjoblib
@@ -11,8 +11,6 @@ import sklearn
 # Init app
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
-
-
 # # Init ma
 ma = Marshmallow(app)
 
@@ -29,6 +27,11 @@ model = pickle.load(open(filename, 'rb'))
 
 print('The scikit-learn version is {}.'.format(sklearn.__version__))
 # Predict
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/model', methods=['POST'])
 def predict_flower():
 
@@ -39,13 +42,10 @@ def predict_flower():
     sunny  = request.json['sunny']
     cloudy  = request.json['cloudy']
     crop_type = request.json['crop_type']
-    # CATEGORIES = ['setosa','versicolor','virginica']
     input = [[farm_meter,rain,sunny,cloudy]]
-    # print([petal_length,petal_width,sepal_length,sepal_width])
 
     print("dam =============",input)
     output = model.predict(input)
-    # class_name = CATEGORIES[np.argmax(output[0])]
 
     print(output,"===========")
     pred= {
@@ -67,4 +67,4 @@ def predict_flower():
 
 # Run Server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
