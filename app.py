@@ -49,7 +49,7 @@ def predict_flower():
 
     print(output,"===========")
     pred= {
-        "success": True,
+        "success": 'true',
         "data_sended" : {
             "farm_meter": farm_meter,
             "rain": rain,
