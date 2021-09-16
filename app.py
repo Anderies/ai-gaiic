@@ -62,7 +62,7 @@ def predict_flower():
         }
     }
 
-    return json.dumps(str(pred))
+    return pred
     # return jsonify(pred)
 
 # Run Server
